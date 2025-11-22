@@ -1,0 +1,328 @@
+🔨 Building MultiOCR...
+
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project MultiOCR.xcodeproj -scheme MultiOCR -configuration Debug clean build
+
+2025-11-22 11:51:32.695 xcodebuild[4693:230727] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'MultiOCR' in project 'MultiOCR' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: eeb37d828703e877553d831fc5ef8801
+Build description path: /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/XCBuildData/eeb37d828703e877553d831fc5ef8801.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR-e3e82e8d9adeed6d0667b15a7249e200-VFS/all-product-headers.yaml
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR-e3e82e8d9adeed6d0667b15a7249e200-VFS/all-product-headers.yaml
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug
+    cd /Users/jang-minyeop/Project/OCR/MultiOCR.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.hmap (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-generated-files.hmap (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-generated-files.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-own-target-headers.hmap (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-project-headers.hmap (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-project-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR_const_extract_protocols.json (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.SwiftFileList (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.SwiftFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR-OutputFileMap.json (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.SwiftConstValuesFileList (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.LinkFileList (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.LinkFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.DependencyStaticMetadataFileList (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.DependencyMetadataFileList (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-all-target-headers.hmap (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-all-non-framework-target-headers.hmap (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-DebugDylibPath-normal-arm64.txt (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-DebugDylibInstallName-normal-arm64.txt (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Resources (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Resources
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/MacOS (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/MacOS
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/Entitlements.plist (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/Entitlements.plist
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app
+
+ProcessProductPackaging /Users/jang-minyeop/Project/OCR/MultiOCR/MultiOCR.entitlements /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.app.xcent (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 0;
+    "com.apple.security.automation.apple-events" = 1;
+    "com.apple.security.get-task-allow" = 1;
+    "com.apple.security.network.client" = 1;
+}
+    
+    builtin-productPackagingUtility /Users/jang-minyeop/Project/OCR/MultiOCR/MultiOCR.entitlements -entitlements -format xml -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.app.xcent
+
+ProcessProductPackagingDER /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.app.xcent /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.app.xcent.der (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /usr/bin/derq query -f xml -i /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.app.xcent -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR.app.xcent.der --raw
+
+Ld /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/MacOS/__preview.dylib normal (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -O0 -L/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug -F/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug -install_name @rpath/MultiOCR.debug.dylib -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR_dependency_info.dat -Xlinker -no_adhoc_codesign -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/MacOS/__preview.dylib
+
+GenerateAssetSymbols /Users/jang-minyeop/Project/OCR/MultiOCR/Assets.xcassets (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/jang-minyeop/Project/OCR/MultiOCR/Assets.xcassets --compile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Resources --output-format human-readable-text --notices --warnings --export-dependency-info /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_dependencies --output-partial-info-plist /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 14.0 --platform macosx --bundle-identifier com.multiocr.app --generate-swift-asset-symbols /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/thinned (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/thinned
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/unthinned (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/unthinned
+
+CompileAssetCatalogVariant thinned /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Resources /Users/jang-minyeop/Project/OCR/MultiOCR/Assets.xcassets (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/jang-minyeop/Project/OCR/MultiOCR/Assets.xcassets --compile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 14.0 --platform macosx
+/* com.apple.actool.notices */
+/Users/jang-minyeop/Project/OCR/MultiOCR/Assets.xcassets: warning: Accent color ‘AccentColor’ is not present in any asset catalogs.
+/* com.apple.actool.compilation-results */
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist_thinned
+
+
+LinkAssetCatalog /Users/jang-minyeop/Project/OCR/MultiOCR/Assets.xcassets (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    builtin-linkAssetCatalog --thinned /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/thinned --thinned-dependencies /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist_thinned --unthinned /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_output/unthinned --unthinned-dependencies /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist_unthinned --output /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Resources --plist-output /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist
+
+ProcessInfoPlistFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Info.plist /Users/jang-minyeop/Project/OCR/MultiOCR/Info.plist (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    builtin-infoPlistUtility /Users/jang-minyeop/Project/OCR/MultiOCR/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/assetcatalog_generated_info.plist -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/MultiOCR.app/Contents/Info.plist
+
+SwiftDriver MultiOCR normal arm64 com.apple.xcode.tools.swift.compiler (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MultiOCR -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos14.0 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-generated-files.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-own-target-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-project-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR-Swift.h -working-directory /Users/jang-minyeop/Project/OCR -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ SettingsManager.swift,\ OCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/SettingsManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Models/OCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/SettingsManager.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Models/OCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 Compiling\ OCRResult.swift,\ VisionOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Models/OCRResult.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/VisionOCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Models/OCRResult.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/VisionOCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 Compiling\ MistralOCREngine.swift,\ HotkeyManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/MistralOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Utilities/HotkeyManager.swift (in target 'MultiOCR' from project 'MultiOCR')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/MistralOCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Utilities/HotkeyManager.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 Compiling\ GeminiOCREngine.swift,\ ChatGPTOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/GeminiOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/ChatGPTOCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/GeminiOCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/ChatGPTOCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 Compiling\ MultiOCRApp.swift,\ AppDelegate.swift,\ StatusBarController.swift /Users/jang-minyeop/Project/OCR/MultiOCR/MultiOCRApp.swift /Users/jang-minyeop/Project/OCR/MultiOCR/AppDelegate.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift (in target 'MultiOCR' from project 'MultiOCR')
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c -primary-file /Users/jang-minyeop/Project/OCR/MultiOCR/MultiOCRApp.swift -primary-file /Users/jang-minyeop/Project/OCR/MultiOCR/AppDelegate.swift -primary-file /Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/OCRManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/ScreenCaptureManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/SettingsManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Models/OCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Models/OCRResult.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/VisionOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/GeminiOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/ChatGPTOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/OCREngines/MistralOCREngine.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Utilities/HotkeyManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Utilities/KeychainHelper.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Views/SelectionOverlayWindow.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Views/SettingsView.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.swift -supplementary-output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/supplementaryOutputs-1 -emit-localized-strings -emit-localized-strings-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64 -target arm64-apple-macos14.0 -module-can-import-version AppKit 2685.20.119 2685.20.119 -module-can-import-version DeveloperToolsSupport 23.0.4 23.0.4 -module-can-import-version SwiftUI 7.1.13.1 7.1.13 -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libPreviewsMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#PreviewsMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftUIMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftUIMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug -no-color-diagnostics -Xcc -fno-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=4 -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -swift-version 5 -enforce-exclusivity\=checked -Onone -D DEBUG -serialize-debugging-options -const-gather-protocols-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCR_const_extract_protocols.json -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Users/jang-minyeop/Project/OCR -enable-anonymous-context-mangled-names -file-compilation-dir /Users/jang-minyeop/Project/OCR -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-generated-files.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-own-target-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/MultiOCR-project-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources -Xcc -DDEBUG\=1 -no-auto-bridging-header-chaining -module-name MultiOCR -frontend-parseable-output -disable-clang-spi -target-sdk-version 26.1 -target-sdk-name macosx26.1 -clang-target arm64-apple-macos26.1 -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCRApp.o -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/AppDelegate.o -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/StatusBarController.o -index-unit-output-path /MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/MultiOCRApp.o -index-unit-output-path /MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/AppDelegate.o -index-unit-output-path /MultiOCR.build/Debug/MultiOCR.build/Objects-normal/arm64/StatusBarController.o -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Index.noindex/DataStore -index-system-modules
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/MultiOCRApp.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/AppDelegate.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+/Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift:138:26: error: cannot find 'ResultView' in scope
+        let resultView = ResultView(result: result)
+                         ^~~~~~~~~~
+/Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift:211:28: warning: 'NSUserNotification' was deprecated in macOS 11.0: All NSUserNotifications API should be replaced with UserNotifications.frameworks API
+        let notification = NSUserNotification()
+                           ^
+/Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift:214:34: warning: 'NSUserNotificationDefaultSoundName' was deprecated in macOS 11.0: All NSUserNotifications API should be replaced with UserNotifications.frameworks API
+        notification.soundName = NSUserNotificationDefaultSoundName
+                                 ^
+/Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift:216:9: warning: 'NSUserNotificationCenter' was deprecated in macOS 11.0: All NSUserNotifications API should be replaced with UserNotifications.frameworks API
+        NSUserNotificationCenter.default.deliver(notification)
+        ^
+
+SwiftCompile normal arm64 Compiling\ SettingsView.swift,\ GeneratedAssetSymbols.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Views/SettingsView.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'MultiOCR' from project 'MultiOCR')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Views/SettingsView.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/MultiOCR-djxwiuwoxkruadgylkbhoqncmrjl/Build/Intermediates.noindex/MultiOCR.build/Debug/MultiOCR.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ MultiOCR (in target 'MultiOCR' from project 'MultiOCR')
+
+EmitSwiftModule normal arm64 (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 Compiling\ OCRManager.swift,\ ScreenCaptureManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/OCRManager.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/ScreenCaptureManager.swift (in target 'MultiOCR' from project 'MultiOCR')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/OCRManager.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Managers/ScreenCaptureManager.swift (in target 'MultiOCR' from project 'MultiOCR')
+    cd /Users/jang-minyeop/Project/OCR
+    
+
+SwiftCompile normal arm64 Compiling\ KeychainHelper.swift,\ SelectionOverlayWindow.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Utilities/KeychainHelper.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Views/SelectionOverlayWindow.swift (in target 'MultiOCR' from project 'MultiOCR')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SettingsManager.swift, OCREngine.swift (in target 'MultiOCR' from project 'MultiOCR')
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'MultiOCR' from project 'MultiOCR')
+** BUILD FAILED **
+
+
+The following build commands failed:
+	SwiftCompile normal arm64 Compiling\ MultiOCRApp.swift,\ AppDelegate.swift,\ StatusBarController.swift /Users/jang-minyeop/Project/OCR/MultiOCR/MultiOCRApp.swift /Users/jang-minyeop/Project/OCR/MultiOCR/AppDelegate.swift /Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift (in target 'MultiOCR' from project 'MultiOCR')
+	SwiftCompile normal arm64 /Users/jang-minyeop/Project/OCR/MultiOCR/Controllers/StatusBarController.swift (in target 'MultiOCR' from project 'MultiOCR')
+	Building project MultiOCR with scheme MultiOCR and configuration Debug
+(3 failures)
