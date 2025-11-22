@@ -93,6 +93,10 @@ class ScreenCaptureManager: NSObject, NSWindowDelegate {
     }
     
     private func captureRect(_ rect: CGRect, on screen: NSScreen) {
+        // Take ownership of completion handler to prevent windowWillClose from cancelling it
+        let completion = self.completionHandler
+        self.completionHandler = nil
+
         // Close overlay window immediately
         selectionWindow?.close()
         selectionWindow = nil
@@ -109,12 +113,12 @@ class ScreenCaptureManager: NSObject, NSWindowDelegate {
                     windowID,
                     [.bestResolution, .boundsIgnoreFraming]
                   ) else {
-                self.completionHandler?(nil)
+                completion?(nil)
                 return
             }
             
             let nsImage = NSImage(cgImage: image, size: rect.size)
-            self.completionHandler?(nsImage)
+            completion?(nsImage)
         }
     }
     
@@ -123,6 +127,11 @@ class ScreenCaptureManager: NSObject, NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
         if let window = notification.object as? NSWindow, window == selectionWindow {
             selectionWindow = nil
+            // If completion handler is still set, it means selection was cancelled or closed without capture
+            if let completion = completionHandler {
+                completion(nil)
+                completionHandler = nil
+            }
         }
     }
 }

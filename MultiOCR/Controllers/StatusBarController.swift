@@ -31,7 +31,13 @@ class StatusBarController: NSObject, UNUserNotificationCenterDelegate {
         
         if let button = statusItem.button {
             // Set icon (using SF Symbol for now, will be replaced with custom icon)
-            button.image = NSImage(systemSymbolName: "doc.text.viewfinder", accessibilityDescription: "MultiOCR")
+            if let image = NSImage(systemSymbolName: "doc.text.viewfinder", accessibilityDescription: "MultiOCR") {
+                button.image = image
+            } else {
+                // Fallback icon for older macOS or if symbol missing
+                button.image = NSImage(systemSymbolName: "text.viewfinder", accessibilityDescription: "MultiOCR")
+                    ?? NSImage(named: NSImage.actionTemplateName)
+            }
             button.image?.isTemplate = true
         }
         
