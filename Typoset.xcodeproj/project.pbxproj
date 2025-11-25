@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9ACD53AD2ED56EB10015D284 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACD53AC2ED56EB10015D284 /* Sparkle */; };
+		9ACD53B32ED56EFC0015D284 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACD53B22ED56EFC0015D284 /* SQLite */; };
+		9ACD53B62ED56FB90015D284 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACD53B52ED56FB90015D284 /* KeychainAccess */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9A9843172ED4B8D70006BF25 /* Typoset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Typoset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ACD53B32ED56EFC0015D284 /* SQLite in Frameworks */,
+				9ACD53AD2ED56EB10015D284 /* Sparkle in Frameworks */,
+				9ACD53B62ED56FB90015D284 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9843192ED4B8D70006BF25 /* Typoset */,
+				9ACD53B12ED56EF80015D284 /* Frameworks */,
 				9A9843182ED4B8D70006BF25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +53,13 @@
 				9A9843172ED4B8D70006BF25 /* Typoset.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9ACD53B12ED56EF80015D284 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +82,9 @@
 			);
 			name = Typoset;
 			packageProductDependencies = (
+				9ACD53AC2ED56EB10015D284 /* Sparkle */,
+				9ACD53B22ED56EFC0015D284 /* SQLite */,
+				9ACD53B52ED56FB90015D284 /* KeychainAccess */,
 			);
 			productName = Typoset;
 			productReference = 9A9843172ED4B8D70006BF25 /* Typoset.app */;
@@ -94,6 +114,11 @@
 			);
 			mainGroup = 9A98430E2ED4B8D70006BF25;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9A18BD922ED53D0C003C30F5 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				9ACD53AB2ED56EB10015D284 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				9ACD53B42ED56FB90015D284 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9A9843182ED4B8D70006BF25 /* Products */;
 			projectDirPath = "";
@@ -325,6 +350,52 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A18BD922ED53D0C003C30F5 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.4;
+			};
+		};
+		9ACD53AB2ED56EB10015D284 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
+		9ACD53B42ED56FB90015D284 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 5.0.0;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9ACD53AC2ED56EB10015D284 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ACD53AB2ED56EB10015D284 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+		9ACD53B22ED56EFC0015D284 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A18BD922ED53D0C003C30F5 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+		9ACD53B52ED56FB90015D284 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ACD53B42ED56FB90015D284 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A98430F2ED4B8D70006BF25 /* Project object */;
 }

@@ -1,0 +1,713 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Typoset.xcodeproj -scheme Typoset -configuration Debug clean build
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.8.1
+  SQLite.swift: https://github.com/stephencelis/SQLite.swift.git @ 0.15.4
+  swift-toolchain-sqlite: https://github.com/swiftlang/swift-toolchain-sqlite @ 1.0.4
+  KeychainAccess: https://github.com/kishikawakatsumi/KeychainAccess @ 4.2.2
+
+2025-11-25 14:03:32.532 xcodebuild[20897:3468548] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008122-001238A01106001C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (6 targets)
+    Target 'Typoset' in project 'Typoset'
+        ➜ Explicit dependency on target 'SQLite' in project 'SQLite.swift'
+        ➜ Explicit dependency on target 'Sparkle' in project 'Sparkle'
+        ➜ Explicit dependency on target 'KeychainAccess' in project 'KeychainAccess'
+    Target 'KeychainAccess' in project 'KeychainAccess'
+        ➜ Explicit dependency on target 'KeychainAccess' in project 'KeychainAccess'
+    Target 'KeychainAccess' in project 'KeychainAccess' (no dependencies)
+    Target 'Sparkle' in project 'Sparkle' (no dependencies)
+    Target 'SQLite' in project 'SQLite.swift'
+        ➜ Explicit dependency on target 'SQLite' in project 'SQLite.swift'
+    Target 'SQLite' in project 'SQLite.swift' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: fc0760eea6bfd9d51ff25501a290c92b
+Build description path: /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/XCBuildData/fc0760eea6bfd9d51ff25501a290c92b.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset-6af0084e8baef9df1a650264ecc645cd-VFS/all-product-headers.yaml
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset-6af0084e8baef9df1a650264ecc645cd-VFS/all-product-headers.yaml
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug
+
+CreateBuildDirectory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/PackageFrameworks
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-create-build-directory /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/PackageFrameworks
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.modulemap (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.modulemap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.LinkFileList (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.LinkFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_const_extract_protocols.json (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-OutputFileMap.json (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.modulemap (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.modulemap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.DependencyMetadataFileList (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.DependencyStaticMetadataFileList (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite_const_extract_protocols.json (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.SwiftConstValuesFileList (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.SwiftFileList (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.SwiftFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.LinkFileList (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.LinkFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-OutputFileMap.json (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftFileList (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftConstValuesFileList (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.DependencyStaticMetadataFileList (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.DependencyMetadataFileList (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.DependencyMetadataFileList
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps/KeychainAccess.modulemap /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.modulemap (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.modulemap /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps/SQLite.modulemap /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.modulemap (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/SQLite.modulemap /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps
+
+ProcessXCFramework /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Sparkle.framework macos
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-process-xcframework --xcframework /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework --platform macos --target-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/empty-Typoset.plist (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/empty-Typoset.plist
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-own-target-headers.hmap (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-generated-files.hmap (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-generated-files.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-all-target-headers.hmap (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-all-non-framework-target-headers.hmap (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-project-headers.hmap (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-project-headers.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.hmap (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.hmap
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.DependencyStaticMetadataFileList (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.DependencyMetadataFileList (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-DebugDylibPath-normal-arm64.txt (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-DebugDylibInstallName-normal-arm64.txt (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-DebugDylibInstallName-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.SwiftConstValuesFileList (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset_const_extract_protocols.json (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.SwiftFileList (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.SwiftFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.LinkFileList (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.LinkFileList
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset-OutputFileMap.json (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/Entitlements.plist (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    write-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/Entitlements.plist
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/Resources (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/Resources
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/MacOS (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/MacOS
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/Frameworks (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/Frameworks
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app
+
+SwiftDriver SQLite normal arm64 com.apple.xcode.tools.swift.compiler (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name SQLite -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos10.13 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name sqlite_swift -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite_const_extract_protocols.json -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-Swift.h -working-directory /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver KeychainAccess normal arm64 com.apple.xcode.tools.swift.compiler (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KeychainAccess -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos10.13 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_const_extract_protocols.json -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-Swift.h -working-directory /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ Keychain.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess/Lib/KeychainAccess/Keychain.swift (in target 'KeychainAccess' from project 'KeychainAccess')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess/Lib/KeychainAccess/Keychain.swift (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ KeychainAccess (in target 'KeychainAccess' from project 'KeychainAccess')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess/Lib/KeychainAccess/Keychain.swift (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ SchemaChanger.swift,\ SchemaDefinitions.swift,\ SchemaReader.swift,\ AggregateFunctions.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/SchemaChanger.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/SchemaDefinitions.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/SchemaReader.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/AggregateFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/SchemaChanger.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/SchemaDefinitions.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/SchemaReader.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/AggregateFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ SQLite (in target 'SQLite' from project 'SQLite.swift')
+
+EmitSwiftModule normal arm64 (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ Coding.swift,\ Collation.swift,\ CoreFunctions.swift,\ CustomFunctions.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Coding.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Collation.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/CoreFunctions.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/CustomFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Coding.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Collation.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/CoreFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/CustomFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ Connection.swift,\ Errors.swift,\ Result.swift,\ SQLiteFeature.swift,\ SQLiteVersion.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Errors.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Result.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/SQLiteFeature.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/SQLiteVersion.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Errors.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Result.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/SQLiteFeature.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/SQLiteVersion.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ DateAndTimeFunctions.swift,\ Expression.swift,\ Operators.swift,\ Query+with.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/DateAndTimeFunctions.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Expression.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Operators.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Query+with.swift (in target 'SQLite' from project 'SQLite.swift')
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/DateAndTimeFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Expression.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Operators.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Query+with.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ Query.swift,\ Schema.swift,\ Setter.swift,\ WindowFunctions.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Query.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Schema.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Setter.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/WindowFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Query.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Schema.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/Setter.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Typed/WindowFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 Compiling\ FTS5.swift,\ RTree.swift,\ Foundation.swift,\ Helpers.swift,\ Connection+Schema.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/FTS5.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/RTree.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Foundation.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Helpers.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/Connection+Schema.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/FTS5.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/RTree.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Foundation.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Helpers.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Schema/Connection+Schema.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for KeychainAccess (in target 'KeychainAccess' from project 'KeychainAccess')
+
+SwiftDriver\ Compilation\ Requirements KeychainAccess normal arm64 com.apple.xcode.tools.swift.compiler (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KeychainAccess -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos10.13 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_const_extract_protocols.json -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-Swift.h -working-directory /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for SQLite (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftDriver\ Compilation\ Requirements SQLite normal arm64 com.apple.xcode.tools.swift.compiler (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name SQLite -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos10.13 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -package-name sqlite_swift -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite_const_extract_protocols.json -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-Swift.h -working-directory /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ Backup.swift,\ Blob.swift,\ Connection+Aggregation.swift,\ Connection+Attach.swift,\ Connection+Pragmas.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Backup.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Blob.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection+Aggregation.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection+Attach.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection+Pragmas.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Backup.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Blob.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection+Aggregation.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection+Attach.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Connection+Pragmas.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftMergeGeneratedHeaders /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps/SQLite-Swift.h /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-Swift.h (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    builtin-swiftHeaderTool -arch arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite-Swift.h -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps/SQLite-Swift.h
+
+SwiftDriverJobDiscovery normal arm64 Compiling FTS5.swift, RTree.swift, Foundation.swift, Helpers.swift, Connection+Schema.swift (in target 'SQLite' from project 'SQLite.swift')
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/arm64-apple-macos.swiftmodule /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftmodule (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftmodule /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/arm64-apple-macos.swiftdoc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftdoc (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftdoc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/arm64-apple-macos.swiftdoc
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/arm64-apple-macos.abi.json /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.abi.json (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.abi.json /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftsourceinfo (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SQLite.swift.build/Debug/SQLite.build/Objects-normal/arm64/SQLite.swiftsourceinfo /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/SQLite.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+SwiftMergeGeneratedHeaders /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps/KeychainAccess-Swift.h /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-Swift.h (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    builtin-swiftHeaderTool -arch arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-Swift.h -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/GeneratedModuleMaps/KeychainAccess-Swift.h
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/arm64-apple-macos.swiftmodule /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftmodule (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftmodule /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/arm64-apple-macos.swiftdoc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftdoc (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftdoc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/arm64-apple-macos.swiftdoc
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/arm64-apple-macos.abi.json /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.abi.json (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.abi.json /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftsourceinfo (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftsourceinfo /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+SwiftCompile normal arm64 Compiling\ Statement.swift,\ URIQueryParameter.swift,\ Value.swift,\ Cipher.swift,\ FTS4.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Statement.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/URIQueryParameter.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Value.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/Cipher.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/FTS4.swift (in target 'SQLite' from project 'SQLite.swift')
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Statement.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/URIQueryParameter.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Core/Value.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/Cipher.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/SQLite.swift/Sources/SQLite/Extensions/FTS4.swift (in target 'SQLite' from project 'SQLite.swift')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling Connection.swift, Errors.swift, Result.swift, SQLiteFeature.swift, SQLiteVersion.swift (in target 'SQLite' from project 'SQLite.swift')
+
+ProcessProductPackaging "" /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.app.xcent (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 1;
+    "com.apple.security.files.user-selected.read-only" = 1;
+    "com.apple.security.get-task-allow" = 1;
+}
+    
+    builtin-productPackagingUtility -entitlements -format xml -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.app.xcent
+
+ProcessProductPackagingDER /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.app.xcent /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.app.xcent.der (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /usr/bin/derq query -f xml -i /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.app.xcent -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset.app.xcent.der --raw
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_output/unthinned (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_output/unthinned
+
+MkDir /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_output/thinned (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /bin/mkdir -p /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_output/thinned
+
+GenerateAssetSymbols /Users/jang-minyeop/Documents/Typoset/Typoset/Resources/Assets.xcassets /Users/jang-minyeop/Documents/Typoset/Typoset/AppIcon.icon /Users/jang-minyeop/Documents/Typoset/Typoset/Assets.xcassets (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/jang-minyeop/Documents/Typoset/Typoset/Resources/Assets.xcassets /Users/jang-minyeop/Documents/Typoset/Typoset/AppIcon.icon /Users/jang-minyeop/Documents/Typoset/Typoset/Assets.xcassets --compile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/Resources --output-format human-readable-text --notices --warnings --export-dependency-info /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_dependencies --output-partial-info-plist /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 26.1 --platform macosx --bundle-identifier com.doidoi00.Typoset --generate-swift-asset-symbols /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+SwiftDriverJobDiscovery normal arm64 Compiling Coding.swift, Collation.swift, CoreFunctions.swift, CustomFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+
+CompileAssetCatalogVariant thinned /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/Typoset.app/Contents/Resources /Users/jang-minyeop/Documents/Typoset/Typoset/Resources/Assets.xcassets /Users/jang-minyeop/Documents/Typoset/Typoset/AppIcon.icon /Users/jang-minyeop/Documents/Typoset/Typoset/Assets.xcassets (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/jang-minyeop/Documents/Typoset/Typoset/Resources/Assets.xcassets /Users/jang-minyeop/Documents/Typoset/Typoset/AppIcon.icon /Users/jang-minyeop/Documents/Typoset/Typoset/Assets.xcassets --compile /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region en --target-device mac --minimum-deployment-target 26.1 --platform macosx
+
+SwiftDriver Typoset normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Typoset -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.SwiftFileList -DDEBUG -default-isolation\=MainActor -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos26.1 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/PackageFrameworks -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/PackageFrameworks -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64 -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-generated-files.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-own-target-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset-6af0084e8baef9df1a650264ecc645cd-VFS/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-project-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset-Swift.h -working-directory /Users/jang-minyeop/Documents/Typoset -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling Backup.swift, Blob.swift, Connection+Aggregation.swift, Connection+Attach.swift, Connection+Pragmas.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Keychain.swift (in target 'KeychainAccess' from project 'KeychainAccess')
+
+SwiftDriver\ Compilation KeychainAccess normal arm64 com.apple.xcode.tools.swift.compiler (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name KeychainAccess -Onone -enforce-exclusivity\=checked @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftFileList -DSWIFT_PACKAGE -DDEBUG -DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -DXcode -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -target arm64-apple-macos10.13 -g -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -suppress-warnings -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_const_extract_protocols.json -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/DerivedSources -Xcc -DSWIFT_PACKAGE -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-Swift.h -working-directory /Users/jang-minyeop/Documents/Typoset/Typoset.xcodeproj -experimental-emit-module-separately -disable-cmo
+
+Ld /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.o normal (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos10.13 -r -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -O0 -w -L/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -filelist /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.LinkFileList -nostdlib -Xlinker -object_path_lto -Xlinker /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.swiftmodule @/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess-linker-args.resp -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.o
+
+SwiftDriverJobDiscovery normal arm64 Compiling SchemaChanger.swift, SchemaDefinitions.swift, SchemaReader.swift, AggregateFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+
+ExtractAppIntentsMetadata (in target 'KeychainAccess' from project 'KeychainAccess')
+    cd /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/SourcePackages/checkouts/KeychainAccess
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name KeychainAccess --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk --xcode-version 17B100 --platform-family macOS --deployment-target 10.13 --bundle-identifier keychainaccess.KeychainAccess --output /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.appintents --target-triple arm64-apple-macos10.13 --binary-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/KeychainAccess.o --dependency-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess_dependency_info.dat --stringsdata-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftFileList --metadata-file-list /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.DependencyMetadataFileList --static-metadata-file-list /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/KeychainAccess.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/KeychainAccess.build/Debug/KeychainAccess.build/Objects-normal/arm64/KeychainAccess.SwiftConstValuesFileList --force --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-11-25 14:03:35.704 appintentsmetadataprocessor[20995:3469169] Starting appintentsmetadataprocessor export
+2025-11-25 14:03:35.872 appintentsmetadataprocessor[20995:3469169] Extracted no relevant App Intents symbols, skipping writing output
+
+SwiftDriverJobDiscovery normal arm64 Compiling DateAndTimeFunctions.swift, Expression.swift, Operators.swift, Query+with.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 Compiling\ GeminiCLIEngine.swift,\ GeminiEngine.swift,\ MistralEngine.swift,\ OpenAIEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/GeminiCLIEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/GeminiEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/MistralEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/OpenAIEngine.swift (in target 'Typoset' from project 'Typoset')
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/GeminiCLIEngine.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/GeminiEngine.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/MistralEngine.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/OpenAIEngine.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 Compiling\ DatabaseService.swift,\ ExportService.swift,\ FavoritesManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/DatabaseService.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/FavoritesManager.swift (in target 'Typoset' from project 'Typoset')
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/GeminiCLIEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/GeminiEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/MistralEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/OpenAIEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/VisionEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Models/OCREngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Models/OCRResult.swift -primary-file /Users/jang-minyeop/Documents/Typoset/Typoset/Services/DatabaseService.swift -primary-file /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift -primary-file /Users/jang-minyeop/Documents/Typoset/Typoset/Services/FavoritesManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/KeychainService.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/OCRManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ScreenCaptureManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/DefaultPrompts.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/ImageUtils.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/OCRResponseParser.swift /Users/jang-minyeop/Documents/Typoset/Typoset/ViewModels/MainViewModel.swift /Users/jang-minyeop/Documents/Typoset/Typoset/ViewModels/SettingsViewModel.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/HistoryView.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/MainWindow.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/OverlayView.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/SelectionOverlayWindow.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/SettingsView.swift /Users/jang-minyeop/Documents/Typoset/Typoset/TyposetApp.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.swift -supplementary-output-file-map /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/supplementaryOutputs-11 -emit-localized-strings -emit-localized-strings-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64 -target arm64-apple-macos26.1 -module-can-import-version AppKit 2685.20.119 2685.20.119 -module-can-import-version DeveloperToolsSupport 23.0.4 23.0.4 -module-can-import-version SwiftUI 7.1.13.1 7.1.13 -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libPreviewsMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#PreviewsMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftUIMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftUIMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk -I /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/PackageFrameworks -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/PackageFrameworks -F /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug -no-color-diagnostics -Xcc -fno-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=5 -module-cache-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -swift-version 5 -enforce-exclusivity\=checked -Onone -D DEBUG -serialize-debugging-options -const-gather-protocols-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/Typoset_const_extract_protocols.json -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -default-isolation\=MainActor -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Users/jang-minyeop/Documents/Typoset -enable-anonymous-context-mangled-names -file-compilation-dir /Users/jang-minyeop/Documents/Typoset -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -Xcc -ivfsstatcache -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.1-25B74-3ae1261907bdadc328169391a47051a6.sdkstatcache -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-generated-files.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-own-target-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset-6af0084e8baef9df1a650264ecc645cd-VFS/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Typoset-project-headers.hmap -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Products/Debug/include -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources-normal/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/arm64 -Xcc -I/Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources -Xcc -DDEBUG\=1 -no-auto-bridging-header-chaining -module-name Typoset -frontend-parseable-output -disable-clang-spi -target-sdk-version 26.1 -target-sdk-name macosx26.1 -clang-target arm64-apple-macos26.1 -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/DatabaseService.o -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/ExportService.o -o /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/Objects-normal/arm64/FavoritesManager.o -index-unit-output-path /Typoset.build/Debug/Typoset.build/Objects-normal/arm64/DatabaseService.o -index-unit-output-path /Typoset.build/Debug/Typoset.build/Objects-normal/arm64/ExportService.o -index-unit-output-path /Typoset.build/Debug/Typoset.build/Objects-normal/arm64/FavoritesManager.o -index-store-path /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Index.noindex/DataStore -index-system-modules
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Services/DatabaseService.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:62:39: error: initializer 'init(filenameExtension:conformingTo:)' is not available due to missing import of defining module 'UniformTypeIdentifiers'
+        panel.allowedContentTypes = [.init(filenameExtension: "md")!]
+                                      ^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:4:1: note: add import of module 'UniformTypeIdentifiers'
+
+^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:98:39: error: static property 'json' is not available due to missing import of defining module 'UniformTypeIdentifiers'
+        panel.allowedContentTypes = [.json]
+                                      ^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:4:1: note: add import of module 'UniformTypeIdentifiers'
+
+^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:29:39: error: static property 'plainText' is not available due to missing import of defining module 'UniformTypeIdentifiers'
+        panel.allowedContentTypes = [.plainText]
+                                      ^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:4:1: note: add import of module 'UniformTypeIdentifiers'
+
+^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:152:39: error: static property 'pdf' is not available due to missing import of defining module 'UniformTypeIdentifiers'
+        panel.allowedContentTypes = [.pdf]
+                                      ^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:4:1: note: add import of module 'UniformTypeIdentifiers'
+
+^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:226:39: error: static property 'pdf' is not available due to missing import of defining module 'UniformTypeIdentifiers'
+        panel.allowedContentTypes = [.pdf]
+                                      ^
+/Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift:4:1: note: add import of module 'UniformTypeIdentifiers'
+
+^
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Services/FavoritesManager.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 Compiling\ MainViewModel.swift,\ SettingsViewModel.swift,\ HistoryView.swift /Users/jang-minyeop/Documents/Typoset/Typoset/ViewModels/MainViewModel.swift /Users/jang-minyeop/Documents/Typoset/Typoset/ViewModels/SettingsViewModel.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/HistoryView.swift (in target 'Typoset' from project 'Typoset')
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/ViewModels/MainViewModel.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/ViewModels/SettingsViewModel.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Views/HistoryView.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 Compiling\ MainWindow.swift,\ OverlayView.swift,\ SelectionOverlayWindow.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/MainWindow.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/OverlayView.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/SelectionOverlayWindow.swift (in target 'Typoset' from project 'Typoset')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Views/MainWindow.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Views/OverlayView.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Views/SelectionOverlayWindow.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Typoset (in target 'Typoset' from project 'Typoset')
+EmitSwiftModule normal arm64 (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling Query.swift, Schema.swift, Setter.swift, WindowFunctions.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 Compiling\ DefaultPrompts.swift,\ ImageUtils.swift,\ OCRResponseParser.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/DefaultPrompts.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/ImageUtils.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/OCRResponseParser.swift (in target 'Typoset' from project 'Typoset')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/DefaultPrompts.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/ImageUtils.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Utils/OCRResponseParser.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 Compiling\ SettingsView.swift,\ TyposetApp.swift,\ GeneratedAssetSymbols.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Views/SettingsView.swift /Users/jang-minyeop/Documents/Typoset/Typoset/TyposetApp.swift /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Typoset' from project 'Typoset')
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Views/SettingsView.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/TyposetApp.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftCompile normal arm64 /Users/jang-minyeop/Library/Developer/Xcode/DerivedData/Typoset-fgjuoqpxgwvncidldsjcpljanxrt/Build/Intermediates.noindex/Typoset.build/Debug/Typoset.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Typoset' from project 'Typoset')
+    cd /Users/jang-minyeop/Documents/Typoset
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling Statement.swift, URIQueryParameter.swift, Value.swift, Cipher.swift, FTS4.swift (in target 'SQLite' from project 'SQLite.swift')
+
+SwiftCompile normal arm64 Compiling\ VisionEngine.swift,\ OCREngine.swift,\ OCRResult.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Engines/VisionEngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Models/OCREngine.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Models/OCRResult.swift (in target 'Typoset' from project 'Typoset')
+
+SwiftDriverJobDiscovery normal arm64 Compiling DefaultPrompts.swift, ImageUtils.swift, OCRResponseParser.swift (in target 'Typoset' from project 'Typoset')
+
+SwiftCompile normal arm64 Compiling\ KeychainService.swift,\ OCRManager.swift,\ ScreenCaptureManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/KeychainService.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/OCRManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ScreenCaptureManager.swift (in target 'Typoset' from project 'Typoset')
+
+** BUILD FAILED **
+
+
+The following build commands failed:
+	SwiftCompile normal arm64 Compiling\ DatabaseService.swift,\ ExportService.swift,\ FavoritesManager.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/DatabaseService.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift /Users/jang-minyeop/Documents/Typoset/Typoset/Services/FavoritesManager.swift (in target 'Typoset' from project 'Typoset')
+	SwiftCompile normal arm64 /Users/jang-minyeop/Documents/Typoset/Typoset/Services/ExportService.swift (in target 'Typoset' from project 'Typoset')
+	Building project Typoset with scheme Typoset and configuration Debug
+(3 failures)
