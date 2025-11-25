@@ -3,7 +3,10 @@ import KeychainAccess
 
 class KeychainService {
     static let shared = KeychainService()
+    // Configure keychain with accessibility to avoid repeated password prompts
+    // .afterFirstUnlock: Accessible after first device unlock, no password prompt needed
     private let keychain = Keychain(service: "com.doidoi00.MultiOCR")
+        .accessibility(.afterFirstUnlock)
     private let allKeysService = "com.doidoi00.MultiOCR.APIKeys"
     
     struct APIKeys: Codable {

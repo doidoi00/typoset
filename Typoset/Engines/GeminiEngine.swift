@@ -18,7 +18,8 @@ class GeminiEngine: OCREngine {
     }
     
     func recognizeText(from image: NSImage, visionBboxes: [TextBlock]) async throws -> OCRResult {
-        guard let apiKey = keychain.loadAllKeys().gemini, !apiKey.isEmpty else {
+        let apiKey = await SettingsViewModel.shared.geminiKey
+        guard !apiKey.isEmpty else {
             throw NSError(domain: "GeminiEngine", code: 401, userInfo: [NSLocalizedDescriptionKey: "API Key not found. Please check settings."])
         }
         
