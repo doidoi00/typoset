@@ -24,7 +24,7 @@ struct DefaultPrompts {
     - Extract text from each region in the MOST CONTEXTUALLY APPROPRIATE way
     - For titles/headings: Clean, clear text
     - For body text: Preserve paragraphs and line breaks where meaningful
-    - For tables: Preserve structure (use tabs/spaces if needed)
+    - For tables: Preserve structure (use markdown syntax)
     - For lists: Maintain bullet points or numbering
     - Use your understanding of the page context to produce the BEST possible text extraction
 
