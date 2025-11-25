@@ -468,9 +468,5 @@ struct EnginesSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .onAppear {
-            // Load API keys from keychain only when Engines tab is first accessed
-            viewModel.loadKeysIfNeeded()
-        }
     }
 }

@@ -68,13 +68,10 @@ class SettingsViewModel: ObservableObject {
     private let keychain = KeychainService.shared
     private let defaults = UserDefaults.standard
     
-    // Flag to track if keys have been loaded from keychain
-    private var keysLoaded = false
-    
     static let shared = SettingsViewModel()
     
     init() {
-        // Don't load keys on init - defer until Engines tab is accessed
+        loadKeys()
         loadSelectedModels()
         loadSettings()
     }
@@ -247,15 +244,7 @@ class SettingsViewModel: ObservableObject {
         }.resume()
     }
     
-    // Load keys from keychain - called when Engines tab is first accessed
-    func loadKeysIfNeeded() {
-        guard !keysLoaded else {
-            print("[SettingsViewModel] Keys already loaded, skipping")
-            return
-        }
-        keysLoaded = true
-        
-        print("[SettingsViewModel] Loading keys from keychain...")
+    private func loadKeys() {
         let keys = keychain.loadAllKeys()
         
         geminiKey = keys.gemini ?? ""
@@ -266,8 +255,6 @@ class SettingsViewModel: ObservableObject {
         
         mistralKey = keys.mistral ?? ""
         if !mistralKey.isEmpty { fetchMistralModels(apiKey: mistralKey) }
-        
-        print("[SettingsViewModel] Loaded keys - Gemini: \(geminiKey.isEmpty ? "empty" : "set"), OpenAI: \(openAIKey.isEmpty ? "empty" : "set"), Mistral: \(mistralKey.isEmpty ? "empty" : "set")")
     }
     
     private func loadSelectedModels() {
@@ -281,19 +268,16 @@ class SettingsViewModel: ObservableObject {
     }
     
     func saveGeminiKey() {
-        print("[SettingsViewModel] Saving Gemini key, length: \(geminiKey.count)")
         saveAllKeys()
         fetchGeminiModels(apiKey: geminiKey)
     }
     
     func saveOpenAIKey() {
-        print("[SettingsViewModel] Saving OpenAI key, length: \(openAIKey.count)")
         saveAllKeys()
         fetchOpenAIModels(apiKey: openAIKey)
     }
     
     func saveMistralKey() {
-        print("[SettingsViewModel] Saving Mistral key, length: \(mistralKey.count)")
         saveAllKeys()
         fetchMistralModels(apiKey: mistralKey)
     }
@@ -304,13 +288,7 @@ class SettingsViewModel: ObservableObject {
             openai: openAIKey.isEmpty ? nil : openAIKey,
             mistral: mistralKey.isEmpty ? nil : mistralKey
         )
-        print("[SettingsViewModel] Saving to keychain - Gemini: \(geminiKey.isEmpty ? "empty" : "set"), OpenAI: \(openAIKey.isEmpty ? "empty" : "set"), Mistral: \(mistralKey.isEmpty ? "empty" : "set")")
-        do {
-            try keychain.saveAllKeys(keys)
-            print("[SettingsViewModel] Successfully saved keys to keychain")
-        } catch {
-            print("[SettingsViewModel] Failed to save keys to keychain: \(error.localizedDescription)")
-        }
+        try? keychain.saveAllKeys(keys)
     }
     
     func testGeminiConnection() {
