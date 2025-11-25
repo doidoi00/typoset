@@ -106,18 +106,73 @@ class GeminiCLIEngine: OCREngine {
         process.standardOutput = outputPipe
         process.standardError = errorPipe
         
+        // Improvement 2: Streaming output processing
+        var outputData = Data()
+        var errorData = Data()
+        
+        outputPipe.fileHandleForReading.readabilityHandler = { handle in
+            outputData.append(handle.availableData)
+        }
+        
+        errorPipe.fileHandleForReading.readabilityHandler = { handle in
+            errorData.append(handle.availableData)
+        }
+        
         try process.run()
-        process.waitUntilExit()
+        
+        // Improvement 1: Add timeout (60 seconds for OCR processing)
+        let timeout = DispatchTime.now() + .seconds(60)
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        DispatchQueue.global().async {
+            process.waitUntilExit()
+            semaphore.signal()
+        }
+        
+        if semaphore.wait(timeout: timeout) == .timedOut {
+            process.terminate()
+            // Clean up handlers
+            outputPipe.fileHandleForReading.readabilityHandler = nil
+            errorPipe.fileHandleForReading.readabilityHandler = nil
+            throw NSError(domain: "GeminiCLIEngine", code: -1, userInfo: [
+                NSLocalizedDescriptionKey: "Gemini CLI timed out after 60 seconds. The image may be too complex or the service is slow."
+            ])
+        }
+        
+        // Clean up handlers after process completes
+        outputPipe.fileHandleForReading.readabilityHandler = nil
+        errorPipe.fileHandleForReading.readabilityHandler = nil
+        
+        // Read any remaining data
+        outputData.append(outputPipe.fileHandleForReading.readDataToEndOfFile())
+        errorData.append(errorPipe.fileHandleForReading.readDataToEndOfFile())
+        
+        let output = String(data: outputData, encoding: .utf8) ?? ""
+        let errorOutput = String(data: errorData, encoding: .utf8) ?? ""
 
-        let data = outputPipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8) ?? ""
-
-
+        // Improvement 3: Enhanced error handling
         if process.terminationStatus != 0 {
-            // On error, read stderr for debugging
-            let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
-            let errorOutput = String(data: errorData, encoding: .utf8) ?? ""
-            throw NSError(domain: "GeminiCLIEngine", code: Int(process.terminationStatus), userInfo: [NSLocalizedDescriptionKey: "CLI Error: \(errorOutput)"])
+            var errorMessage = "CLI Error (exit code \(process.terminationStatus))"
+            
+            if !errorOutput.isEmpty {
+                errorMessage += ": \(errorOutput)"
+            } else if output.isEmpty {
+                errorMessage += ": No output received from Gemini CLI"
+            } else {
+                errorMessage += ": Unexpected error. Output: \(output.prefix(200))..."
+            }
+            
+            throw NSError(domain: "GeminiCLIEngine", code: Int(process.terminationStatus), userInfo: [
+                NSLocalizedDescriptionKey: errorMessage,
+                NSLocalizedFailureReasonErrorKey: errorOutput.isEmpty ? "Unknown" : errorOutput
+            ])
+        }
+        
+        // Validate output is not empty
+        guard !output.isEmpty else {
+            throw NSError(domain: "GeminiCLIEngine", code: -1, userInfo: [
+                NSLocalizedDescriptionKey: "Gemini CLI returned empty output. Error: \(errorOutput)"
+            ])
         }
 
         // Clean up response - remove markdown code blocks if present (same as GeminiEngine)
@@ -156,15 +211,32 @@ class GeminiCLIEngine: OCREngine {
                     }
                 }
             } catch {
-                // JSON parsing failed - fallback to line-by-line matching
-                print("Gemini CLI JSON parsing failed: \(error.localizedDescription)")
-                print("Response was: \(cleanedText)")
+                // Improvement 3: Enhanced error logging for JSON parsing failures
+                print("[GeminiCLIEngine] JSON parsing failed: \(error.localizedDescription)")
+                if let decodingError = error as? DecodingError {
+                    switch decodingError {
+                    case .keyNotFound(let key, let context):
+                        print("[GeminiCLIEngine] Missing key '\(key.stringValue)' at path: \(context.codingPath.map { $0.stringValue }.joined(separator: "."))")
+                    case .typeMismatch(let type, let context):
+                        print("[GeminiCLIEngine] Type mismatch for type \(type) at path: \(context.codingPath.map { $0.stringValue }.joined(separator: "."))")
+                    case .valueNotFound(let type, let context):
+                        print("[GeminiCLIEngine] Value not found for type \(type) at path: \(context.codingPath.map { $0.stringValue }.joined(separator: "."))")
+                    case .dataCorrupted(let context):
+                        print("[GeminiCLIEngine] Data corrupted at path: \(context.codingPath.map { $0.stringValue }.joined(separator: "."))")
+                    @unknown default:
+                        print("[GeminiCLIEngine] Unknown decoding error")
+                    }
+                }
+                print("[GeminiCLIEngine] Response preview (first 500 chars): \(cleanedText.prefix(500))")
+                if cleanedText.count > 500 {
+                    print("[GeminiCLIEngine] ... (truncated \(cleanedText.count - 500) more characters)")
+                }
             }
         }
 
         // Fallback if JSON parsing fails (same as GeminiEngine)
         if enhancedBlocks.isEmpty {
-            print("Using fallback: splitting by lines")
+            print("[GeminiCLIEngine] Using fallback: splitting by lines (\(visionBboxes.count) regions available)")
             // Use original Vision bboxes with Gemini's combined text
             let lines = cleanedText.components(separatedBy: "\n").filter { !$0.isEmpty }
             for (index, line) in lines.enumerated() where index < visionBboxes.count {

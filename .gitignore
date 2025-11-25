@@ -151,4 +151,5 @@ gemini.md
 .claude/
 claude.md
 
-
+# Gemini-cli package
+gemini-cli/
