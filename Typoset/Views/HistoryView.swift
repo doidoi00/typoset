@@ -67,7 +67,7 @@ struct HistoryView: View {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
-                            Text(group.source.capitalized)
+                            Text(sourceLabel(for: group.source))
                                 .font(.caption)
                                 .padding(2)
                                 .background(Color.gray.opacity(0.2))
@@ -77,7 +77,7 @@ struct HistoryView: View {
                 }
                 .padding(.vertical, 4)
                 .onTapGesture {
-                    loadFileGroup(group)
+                    mainViewModel.loadFileGroup(group)
                 }
                 .contextMenu {
                     Button("Copy Text") {
@@ -124,15 +124,16 @@ struct HistoryView: View {
         }
     }
     
-    private func loadHistory() {
-        fileGroups = DatabaseService.shared.fetchGroupedHistory()
+    private func sourceLabel(for source: String) -> String {
+        switch source {
+        case "pdf": return "PDF"
+        case "capture": return "Capture"
+        case "image": return "Image"
+        default: return source.capitalized
+        }
     }
     
-    private func loadFileGroup(_ group: FileGroup) {
-        mainViewModel.recognizedText = group.combinedText
-        if let image = group.image {
-            mainViewModel.currentImage = image
-            mainViewModel.pdfDocument = nil
-        }
+    private func loadHistory() {
+        fileGroups = DatabaseService.shared.fetchGroupedHistory()
     }
 }

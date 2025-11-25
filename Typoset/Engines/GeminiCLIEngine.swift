@@ -69,7 +69,9 @@ class GeminiCLIEngine: OCREngine {
         
         // Execute Gemini CLI with explicit image path
         let process = Process()
-        process.executableURL = URL(fileURLWithPath: cliPath)
+        // Resolve symlinks (e.g. /opt/homebrew/bin/gemini -> .../index.js) to ensure Process finds the file
+        let resolvedCliPath = (try? URL(fileURLWithPath: cliPath).resolvingSymlinksInPath().path) ?? cliPath
+        process.executableURL = URL(fileURLWithPath: resolvedCliPath)
         
         // Set CWD to the temp directory so CLI considers the image "in workspace"
         process.currentDirectoryURL = tempDir

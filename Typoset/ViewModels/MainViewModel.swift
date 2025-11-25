@@ -30,6 +30,9 @@ class MainViewModel: ObservableObject {
     // Current file ID for grouping OCR results
     private var currentFileId: String = UUID().uuidString
     
+    // Original file path (for PDF/image imports)
+    private var currentOriginalFilePath: String?
+    
     // Store for Export
     @Published var currentFilename: String = "Capture"
     @Published var lastOCRResult: OCRResult?
@@ -42,6 +45,7 @@ class MainViewModel: ObservableObject {
     
     func captureScreen() {
         currentFileId = UUID().uuidString // New file group for each capture
+        currentOriginalFilePath = nil // No original file for captures
         currentFilename = "Capture"
         captureManager.startCapture { [weak self] image in
             DispatchQueue.main.async {
@@ -63,8 +67,15 @@ class MainViewModel: ObservableObject {
         do {
             let result = try await ocrManager.performOCR(on: image)
             
-            // Save to History with fileId and pageIndex
-            DatabaseService.shared.save(result: result, image: image, source: source, fileId: currentFileId, pageIndex: pageIndex)
+            // Save to History with fileId, pageIndex, and originalFilePath
+            DatabaseService.shared.save(
+                result: result, 
+                image: image, 
+                source: source, 
+                fileId: currentFileId, 
+                pageIndex: pageIndex,
+                originalFilePath: currentOriginalFilePath
+            )
             
             // --- Defensive text processing ---
             let rawText = result.text
@@ -151,6 +162,7 @@ class MainViewModel: ObservableObject {
     
     private func handleFile(at url: URL) {
         currentFileId = UUID().uuidString // New file group for each imported file
+        currentOriginalFilePath = url.path // Store original file path
         currentFilename = url.deletingPathExtension().lastPathComponent
         
         if url.pathExtension.lowercased() == "pdf" {
@@ -257,6 +269,7 @@ class MainViewModel: ObservableObject {
     // Load file group from history
     func loadFileGroup(_ group: FileGroup) {
         currentFileId = group.fileId
+        currentFilename = group.items.first?.text.prefix(20).description ?? "History"
         
         // Fetch all pages for this fileId
         let pages = DatabaseService.shared.fetchPages(fileId: group.fileId)
@@ -267,13 +280,62 @@ class MainViewModel: ObservableObject {
             ocrCache[group.fileId]?[page.pageIndex] = page.text
         }
         
-        // Display first page's image and text (or combined if not PDF)
+        // Try to load original file if available
+        if let originalPath = group.originalFilePath,
+           FileManager.default.fileExists(atPath: originalPath) {
+            let url = URL(fileURLWithPath: originalPath)
+            currentOriginalFilePath = originalPath
+            
+            // Check if it's a PDF
+            if url.pathExtension.lowercased() == "pdf" {
+                if let document = PDFDocument(url: url) {
+                    // Restore PDF document
+                    self.pdfDocument = document
+                    self.totalPages = document.pageCount
+                    self.currentPageIndex = 0
+                    
+                    // Load first page
+                    if let page = document.page(at: 0) {
+                        let pageRect = page.bounds(for: .mediaBox)
+                        let image = NSImage(size: pageRect.size, flipped: false) { rect in
+                            guard let context = NSGraphicsContext.current?.cgContext else { return false }
+                            context.setFillColor(NSColor.white.cgColor)
+                            context.fill(rect)
+                            page.draw(with: .mediaBox, to: context)
+                            return true
+                        }
+                        self.currentImage = image
+                    }
+                    
+                    // Show cached text for first page
+                    if let firstPageText = ocrCache[group.fileId]?[0] {
+                        recognizedText = firstPageText
+                    }
+                    return
+                }
+            } else {
+                // Load original image
+                if let image = NSImage(contentsOf: url) {
+                    self.pdfDocument = nil
+                    self.currentImage = image
+                    
+                    // Show cached text
+                    if let cachedText = ocrCache[group.fileId]?[0] {
+                        recognizedText = cachedText
+                    }
+                    return
+                }
+            }
+        }
+        
+        // Fallback: Use saved image if original file not available
         if let image = group.image {
             currentImage = image
         }
-        pdfDocument = nil  // Clear PDF state (can't restore without path)
+        pdfDocument = nil
+        currentOriginalFilePath = nil
         
-        // Show combined text for now
+        // Show combined text
         recognizedText = pages.sorted { $0.pageIndex < $1.pageIndex }.map { $0.text }.joined(separator: "\n\n---\n\n")
     }
     

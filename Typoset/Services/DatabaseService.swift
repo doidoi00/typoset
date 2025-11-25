@@ -17,6 +17,7 @@ class DatabaseService {
     private let source = Expression<String>("source") // "capture", "pdf", or "image"
     private let fileId = Expression<String>("file_id") // Groups multiple OCR results from same file
     private let pageIndex = Expression<Int>("page_index") // Page number for PDFs (0-indexed)
+    private let originalFilePath = Expression<String?>("original_file_path") // Path to original file before OCR
     
     private init() {
         setupDatabase()
@@ -43,6 +44,7 @@ class DatabaseService {
                 t.column(source, defaultValue: "capture")
                 t.column(fileId, defaultValue: "")
                 t.column(pageIndex, defaultValue: 0)
+                t.column(originalFilePath)
             })
             
             // Migration: Add columns if they don't exist
@@ -62,13 +64,19 @@ class DatabaseService {
                 if hasPageIndex == 0 {
                     try db.run("ALTER TABLE history ADD COLUMN page_index INTEGER DEFAULT 0")
                 }
+                
+                // Migration: Add originalFilePath column if it doesn't exist
+                let hasOriginalFilePath = try db.scalar("SELECT COUNT(*) FROM pragma_table_info('history') WHERE name='original_file_path'") as! Int64
+                if hasOriginalFilePath == 0 {
+                    try db.run("ALTER TABLE history ADD COLUMN original_file_path TEXT")
+                }
             }
         } catch {
             print("Database setup failed: \(error)")
         }
     }
     
-    func save(result: OCRResult, image: NSImage?, source: String, fileId: String, pageIndex: Int = 0) {
+    func save(result: OCRResult, image: NSImage?, source: String, fileId: String, pageIndex: Int = 0, originalFilePath: String? = nil) {
         do {
             var savedImagePath: String? = nil
             if let image = image {
@@ -83,7 +91,8 @@ class DatabaseService {
                 imagePath <- savedImagePath,
                 self.source <- source,
                 self.fileId <- fileId,
-                self.pageIndex <- pageIndex
+                self.pageIndex <- pageIndex,
+                self.originalFilePath <- originalFilePath
             ))
         } catch {
             print("Insert failed: \(error)")
@@ -103,7 +112,8 @@ class DatabaseService {
                     imagePath: row[imagePath],
                     source: row[source],
                     fileId: row[fileId],
-                    pageIndex: row[pageIndex]
+                    pageIndex: row[pageIndex],
+                    originalFilePath: row[originalFilePath]
                 ))
             }
         } catch {
@@ -123,6 +133,7 @@ class DatabaseService {
                 source: firstItem.source,
                 date: items.map { $0.date }.max() ?? firstItem.date,
                 imagePath: firstItem.imagePath,
+                originalFilePath: firstItem.originalFilePath,
                 items: items.sorted { $0.pageIndex < $1.pageIndex } // Sort by page order
             )
         }.sorted { $0.date > $1.date }
@@ -142,7 +153,8 @@ class DatabaseService {
                     imagePath: row[imagePath],
                     source: row[source],
                     fileId: row[self.fileId],
-                    pageIndex: row[self.pageIndex]
+                    pageIndex: row[self.pageIndex],
+                    originalFilePath: row[self.originalFilePath]
                 ))
             }
         } catch {
@@ -182,6 +194,7 @@ struct HistoryItem: Identifiable {
     let source: String
     let fileId: String
     let pageIndex: Int
+    let originalFilePath: String?
     
     var image: NSImage? {
         guard let path = imagePath else { return nil }
@@ -194,6 +207,7 @@ struct FileGroup: Identifiable {
     let source: String
     let date: Date
     let imagePath: String?
+    let originalFilePath: String?
     let items: [HistoryItem]
     
     var id: String { fileId }
