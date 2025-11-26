@@ -18,7 +18,8 @@ class OpenAIEngine: OCREngine {
     }
 
     func recognizeText(from image: NSImage, visionBboxes: [TextBlock]) async throws -> OCRResult {
-        guard let apiKey = keychain.loadAllKeys().openai, !apiKey.isEmpty else {
+        let apiKey = await SettingsViewModel.shared.openAIKey
+        guard !apiKey.isEmpty else {
             throw NSError(domain: "OpenAIEngine", code: 401, userInfo: [NSLocalizedDescriptionKey: "API Key not found. Please check settings."])
         }
 

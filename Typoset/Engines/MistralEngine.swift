@@ -13,7 +13,8 @@ class MistralEngine: OCREngine {
     }
     
     func recognizeText(from image: NSImage) async throws -> OCRResult {
-        guard let apiKey = keychain.loadAllKeys().mistral, !apiKey.isEmpty else {
+        let apiKey = await SettingsViewModel.shared.mistralKey
+        guard !apiKey.isEmpty else {
             throw NSError(domain: "MistralEngine", code: 401, userInfo: [NSLocalizedDescriptionKey: "API Key not found. Please check settings."])
         }
         
