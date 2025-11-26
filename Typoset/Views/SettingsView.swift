@@ -196,6 +196,10 @@ struct EnginesSettingsView: View {
     @Binding var showOpenAIKey: Bool
     @Binding var showMistralKey: Bool
     
+    @State private var showAutoDetectAlert = false
+    @State private var autoDetectedPath = ""
+    @State private var showOpenPanel = false // Trigger for manual browse
+
     var body: some View {
         Form {
             Section(header: Text("Shared Prompt")) {
@@ -283,7 +287,6 @@ struct EnginesSettingsView: View {
                 Link("Get API Key", destination: URL(string: "https://aistudio.google.com/app/apikey")!)
                     .font(.caption)
                 
-
             }
             
             Section(header: Text("OpenAI GPT")) {
@@ -444,26 +447,16 @@ struct EnginesSettingsView: View {
                             .textFieldStyle(.roundedBorder)
                         
                         Button("Browse") {
-                            let panel = NSOpenPanel()
-                            panel.canChooseFiles = true
-                            panel.canChooseDirectories = false
-                            panel.allowsMultipleSelection = false
-                            panel.begin { response in
-                                if response == .OK, let url = panel.url {
-                                    viewModel.geminiCLIPath = url.path
-                                }
+                            // Try auto-detection first
+                            if let detectedPath = GeminiIDEConnection.shared.findGeminiExecutable() {
+                                autoDetectedPath = detectedPath
+                                showAutoDetectAlert = true
+                            } else {
+                                // Fallback to manual browse if not found
+                                openFilePanel()
                             }
                         }
                     }
-                }
-                
-                VStack(alignment: .leading) {
-                    Text("Prompt")
-                        .font(.body)
-                        .foregroundColor(.primary)
-                    Text("Uses the shared OCR prompt above.")
-                        .font(.caption2)
-                        .foregroundColor(.secondary)
                 }
             }
         }
@@ -471,6 +464,46 @@ struct EnginesSettingsView: View {
         .onAppear {
             // Load API keys from keychain only when Engines tab is first accessed
             viewModel.loadKeysIfNeeded()
+        }
+        .alert("Gemini CLI Found", isPresented: $showAutoDetectAlert) {
+            Button("Use Auto-Detected") {
+                viewModel.geminiCLIPath = autoDetectedPath
+                // Note: Auto-detected path usually doesn't need bookmark if sandbox is disabled
+                // or if it's in a standard location.
+            }
+            Button("Browse Manually") {
+                // Delay slightly to allow alert to dismiss before opening panel
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    openFilePanel()
+                }
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("We found the Gemini CLI at:\n\(autoDetectedPath)\n\nDo you want to use this executable?")
+        }
+    }
+    
+    private func openFilePanel() {
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.message = "Select Gemini CLI executable"
+        panel.prompt = "Select"
+        
+        // Ensure panel runs on main thread
+        DispatchQueue.main.async {
+            panel.begin { response in
+                if response == .OK, let url = panel.url {
+                    do {
+                        try viewModel.saveGeminiCLIBookmark(for: url)
+                    } catch {
+                        print("[SettingsView] Failed to save bookmark: \(error.localizedDescription)")
+                        // Fallback: just save the path
+                        viewModel.geminiCLIPath = url.path
+                    }
+                }
+            }
         }
     }
 }

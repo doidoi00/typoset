@@ -8,7 +8,14 @@ class GeminiCLIEngine: OCREngine {
     private let defaults = UserDefaults.standard
 
     private var cliPath: String {
-        defaults.string(forKey: "geminiCLIPath") ?? "/usr/local/bin/gemini"
+        // Priority: 1. User Setting, 2. Auto-detected Path, 3. Default Fallback
+        if let userPath = defaults.string(forKey: "geminiCLIPath"), !userPath.isEmpty {
+            return userPath
+        }
+        if let autoPath = GeminiIDEConnection.shared.findGeminiExecutable() {
+            return autoPath
+        }
+        return "/usr/local/bin/gemini"
     }
 
     private var selectedModel: String {
@@ -21,11 +28,43 @@ class GeminiCLIEngine: OCREngine {
     }
 
     func recognizeText(from image: NSImage, visionBboxes: [TextBlock]) async throws -> OCRResult {
-        guard FileManager.default.fileExists(atPath: cliPath) else {
-            throw NSError(domain: "GeminiCLIEngine", code: 404, userInfo: [NSLocalizedDescriptionKey: "Gemini CLI executable not found at \(cliPath). Please check settings."])
+        let startTime = Date()
+
+        // Resolve CLI URL
+        let resolvedCliPath = self.cliPath
+        let cliURL = URL(fileURLWithPath: resolvedCliPath)
+        
+        // Check if executable exists
+        guard FileManager.default.fileExists(atPath: resolvedCliPath) else {
+             throw NSError(domain: "GeminiCLIEngine", code: 404, userInfo: [
+                NSLocalizedDescriptionKey: "Gemini CLI executable not found at '\(resolvedCliPath)'. Please install it or select the correct path in Settings."
+            ])
         }
 
-        let startTime = Date()
+        // Start accessing security-scoped resource if it's a user-selected bookmark
+        // Note: Auto-detected paths don't need security scope if they are standard system paths,
+        // but if the user selected it via open panel, we might need it.
+        // For simplicity, we try to access if it's a bookmark, but here we are using path string.
+        // If we strictly rely on bookmarks for sandbox, we might need to revisit this.
+        // However, since we are running /bin/sh, we are bypassing some direct execution restrictions.
+        
+        // Retain existing bookmark logic if available for the specific path?
+        // The previous code relied on `SettingsViewModel.shared.getGeminiCLIURL()`.
+        // We should probably try that first if it matches the path.
+        
+        var bookmarkURL: URL?
+        if let savedURL = await SettingsViewModel.shared.getGeminiCLIURL(), savedURL.path == resolvedCliPath {
+            bookmarkURL = savedURL
+        }
+        
+        if let url = bookmarkURL {
+             guard url.startAccessingSecurityScopedResource() else {
+                throw NSError(domain: "GeminiCLIEngine", code: 403, userInfo: [
+                    NSLocalizedDescriptionKey: "Failed to access Gemini CLI. Please select it again in Settings."
+                ])
+            }
+        }
+        defer { bookmarkURL?.stopAccessingSecurityScopedResource() }
 
         guard let tiffData = image.tiffRepresentation,
               let bitmap = NSBitmapImageRep(data: tiffData),
@@ -52,55 +91,54 @@ class GeminiCLIEngine: OCREngine {
             prompt += "Region \(index + 1): x=\(String(format: "%.3f", bbox.origin.x)), y=\(String(format: "%.3f", bbox.origin.y)), w=\(String(format: "%.3f", bbox.width)), h=\(String(format: "%.3f", bbox.height))\n"
         }
 
-        // Save image to temporary file to ensure CLI processes the correct image
-        let tempDir = FileManager.default.temporaryDirectory
-        let imagePath = tempDir.appendingPathComponent("gemini_ocr_\(UUID().uuidString).jpg").path
+        // Save image to workspace using GeminiIDEConnection
+        let imageFilename = "gemini_ocr_\(UUID().uuidString).jpg"
+        let imagePath: String
         
         do {
-            try resizedJpegData.write(to: URL(fileURLWithPath: imagePath))
+            imagePath = try GeminiIDEConnection.shared.saveFileToWorkspace(data: resizedJpegData, filename: imageFilename)
         } catch {
             throw NSError(domain: "GeminiCLIEngine", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to save temporary image: \(error.localizedDescription)"])
         }
         
         // Ensure temp file is cleaned up
         defer {
-            try? FileManager.default.removeItem(atPath: imagePath)
+            GeminiIDEConnection.shared.removeFileFromWorkspace(filename: imageFilename)
         }
         
         // Execute Gemini CLI with explicit image path
         let process = Process()
-        // Resolve symlinks (e.g. /opt/homebrew/bin/gemini -> .../index.js) to ensure Process finds the file
-        let resolvedCliPath = (try? URL(fileURLWithPath: cliPath).resolvingSymlinksInPath().path) ?? cliPath
-        process.executableURL = URL(fileURLWithPath: resolvedCliPath)
+        // Use /bin/sh to execute the CLI (workaround for sandbox restrictions)
+        process.executableURL = URL(fileURLWithPath: "/bin/sh")
         
-        // Set CWD to the temp directory so CLI considers the image "in workspace"
-        process.currentDirectoryURL = tempDir
-        
+        // Set CWD to the workspace directory so CLI considers the image "in workspace"
+        process.currentDirectoryURL = URL(fileURLWithPath: GeminiIDEConnection.shared.workspacePath)
+
         // Pass prompt and RELATIVE image path (filename only) as arguments using -p flag and @ prefix
         // Usage: gemini -m model -p "prompt @image.jpg"
-        // The CLI will resolve @image.jpg relative to the CWD (tempDir)
-        let imageFilename = URL(fileURLWithPath: imagePath).lastPathComponent
-        process.arguments = [
-            "-m", selectedModel,
-            "-p", "\(prompt) @\(imageFilename)"
-        ]
+        // The CLI will resolve @image.jpg relative to the CWD (workspacePath)
         
-        print("Gemini CLI Command: \(cliPath) -m \(selectedModel) -p \"[PROMPT] @\(imageFilename)\" (CWD: \(tempDir.path))")
+        // Build command string using positional parameters to avoid escaping issues
+        // $1: CLI Path
+        // $2: Model
+        // $3: Prompt
+        // $4: Image Filename
+        let commandString = "\"$1\" -m \"$2\" -p \"$3 @$4\""
+
+        // Arguments for sh -c:
+        // 0: -c
+        // 1: commandString
+        // 2: "gemini-wrapper" (becomes $0 inside sh)
+        // 3: cliURL.path (becomes $1)
+        // 4: selectedModel (becomes $2)
+        // 5: prompt (becomes $3)
+        // 6: imageFilename (becomes $4)
+        process.arguments = ["-c", commandString, "gemini-wrapper", cliURL.path, selectedModel, prompt, imageFilename]
+
+        print("Gemini CLI Command: \(cliURL.path) -m \(selectedModel) -p \"[PROMPT] @\(imageFilename)\" (CWD: \(GeminiIDEConnection.shared.workspacePath))")
         
-        // Set up environment with common PATH locations
-        var environment = ProcessInfo.processInfo.environment
-        let additionalPaths = [
-            "/usr/local/bin",
-            "/opt/homebrew/bin",
-            "/usr/bin",
-            "/bin",
-            (environment["HOME"] ?? "") + "/.nvm/versions/node/*/bin"
-        ]
-        
-        let currentPath = environment["PATH"] ?? ""
-        let newPath = (additionalPaths + currentPath.split(separator: ":").map(String.init)).joined(separator: ":")
-        environment["PATH"] = newPath
-        process.environment = environment
+        // Set up environment using GeminiIDEConnection
+        process.environment = GeminiIDEConnection.shared.getEnvironment()
         
         let outputPipe = Pipe()
         let errorPipe = Pipe()
@@ -120,62 +158,70 @@ class GeminiCLIEngine: OCREngine {
             errorData.append(handle.availableData)
         }
         
-        try process.run()
-        
-        // Improvement 1: Add timeout (60 seconds for OCR processing)
-        let timeout = DispatchTime.now() + .seconds(60)
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        DispatchQueue.global().async {
-            process.waitUntilExit()
-            semaphore.signal()
-        }
-        
-        if semaphore.wait(timeout: timeout) == .timedOut {
-            process.terminate()
-            // Clean up handlers
-            outputPipe.fileHandleForReading.readabilityHandler = nil
-            errorPipe.fileHandleForReading.readabilityHandler = nil
-            throw NSError(domain: "GeminiCLIEngine", code: -1, userInfo: [
-                NSLocalizedDescriptionKey: "Gemini CLI timed out after 60 seconds. The image may be too complex or the service is slow."
-            ])
-        }
-        
-        // Clean up handlers after process completes
-        outputPipe.fileHandleForReading.readabilityHandler = nil
-        errorPipe.fileHandleForReading.readabilityHandler = nil
-        
-        // Read any remaining data
-        outputData.append(outputPipe.fileHandleForReading.readDataToEndOfFile())
-        errorData.append(errorPipe.fileHandleForReading.readDataToEndOfFile())
-        
-        let output = String(data: outputData, encoding: .utf8) ?? ""
-        let errorOutput = String(data: errorData, encoding: .utf8) ?? ""
-
-        // Improvement 3: Enhanced error handling
-        if process.terminationStatus != 0 {
-            var errorMessage = "CLI Error (exit code \(process.terminationStatus))"
-            
-            if !errorOutput.isEmpty {
-                errorMessage += ": \(errorOutput)"
-            } else if output.isEmpty {
-                errorMessage += ": No output received from Gemini CLI"
-            } else {
-                errorMessage += ": Unexpected error. Output: \(output.prefix(200))..."
+        // Execute process asynchronously
+        try await withCheckedThrowingContinuation { continuation in
+            process.terminationHandler = { process in
+                // Clean up handlers
+                outputPipe.fileHandleForReading.readabilityHandler = nil
+                errorPipe.fileHandleForReading.readabilityHandler = nil
+                
+                // Read any remaining data
+                outputData.append(outputPipe.fileHandleForReading.readDataToEndOfFile())
+                errorData.append(errorPipe.fileHandleForReading.readDataToEndOfFile())
+                
+                let output = String(data: outputData, encoding: .utf8) ?? ""
+                let errorOutput = String(data: errorData, encoding: .utf8) ?? ""
+                
+                if process.terminationStatus == 0 {
+                    if !output.isEmpty {
+                        continuation.resume()
+                    } else {
+                        continuation.resume(throwing: NSError(domain: "GeminiCLIEngine", code: -1, userInfo: [
+                            NSLocalizedDescriptionKey: "Gemini CLI returned empty output. Error: \(errorOutput)"
+                        ]))
+                    }
+                } else {
+                    // Handle Sandbox permission error (exit code 126)
+                    if process.terminationStatus == 126 {
+                        continuation.resume(throwing: NSError(domain: "GeminiCLIEngine", code: 126, userInfo: [
+                            NSLocalizedDescriptionKey: "Permission Denied (Sandbox Restriction)",
+                            NSLocalizedFailureReasonErrorKey: "The app cannot execute the auto-detected Gemini CLI due to macOS App Sandbox restrictions.\n\nPlease go to Settings > Gemini CLI and manually select the 'gemini' executable using the 'Browse' button to grant permission."
+                        ]))
+                        return
+                    }
+                    
+                    var errorMessage = "CLI Error (exit code \(process.terminationStatus))"
+                    if !errorOutput.isEmpty {
+                        errorMessage += ": \(errorOutput)"
+                    } else if output.isEmpty {
+                        errorMessage += ": No output received from Gemini CLI"
+                    } else {
+                        errorMessage += ": Unexpected error. Output: \(output.prefix(200))..."
+                    }
+                    
+                    continuation.resume(throwing: NSError(domain: "GeminiCLIEngine", code: Int(process.terminationStatus), userInfo: [
+                        NSLocalizedDescriptionKey: errorMessage,
+                        NSLocalizedFailureReasonErrorKey: errorOutput.isEmpty ? "Unknown" : errorOutput
+                    ]))
+                }
             }
             
-            throw NSError(domain: "GeminiCLIEngine", code: Int(process.terminationStatus), userInfo: [
-                NSLocalizedDescriptionKey: errorMessage,
-                NSLocalizedFailureReasonErrorKey: errorOutput.isEmpty ? "Unknown" : errorOutput
-            ])
+            // Timeout handling (60 seconds)
+            Task {
+                try? await Task.sleep(nanoseconds: 60 * 1_000_000_000)
+                if process.isRunning {
+                    process.terminate()
+                }
+            }
+
+            do {
+                try process.run()
+            } catch {
+                continuation.resume(throwing: error)
+            }
         }
         
-        // Validate output is not empty
-        guard !output.isEmpty else {
-            throw NSError(domain: "GeminiCLIEngine", code: -1, userInfo: [
-                NSLocalizedDescriptionKey: "Gemini CLI returned empty output. Error: \(errorOutput)"
-            ])
-        }
+        let output = String(data: outputData, encoding: .utf8) ?? ""
 
         // Clean up response - remove markdown code blocks if present (same as GeminiEngine)
         var cleanedText = output.trimmingCharacters(in: .whitespacesAndNewlines)

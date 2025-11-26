@@ -118,7 +118,7 @@ struct HistoryView: View {
     
     private func sourceIcon(for source: String) -> String {
         switch source {
-        case "pdf": return "doc"
+        case "pdf", "file": return "doc"
         case "capture": return "camera.viewfinder"
         default: return "photo"
         }
@@ -126,7 +126,7 @@ struct HistoryView: View {
     
     private func sourceLabel(for source: String) -> String {
         switch source {
-        case "pdf": return "PDF"
+        case "pdf", "file": return "PDF"
         case "capture": return "Capture"
         case "image": return "Image"
         default: return source.capitalized

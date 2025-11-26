@@ -31,8 +31,14 @@ class SettingsViewModel: ObservableObject {
     @Published var selectedMistralModel: String = "mistral-ocr-latest" { didSet { save("selectedMistralModel", selectedMistralModel) } }
     
     @Published var geminiCLIPath: String = "/usr/local/bin/gemini" { didSet { save("geminiCLIPath", geminiCLIPath) } }
-    
+
     @Published var customOCRPrompt: String = DefaultPrompts.standard { didSet { save("customOCRPrompt", customOCRPrompt) } }
+
+    // Security-scoped bookmark for Gemini CLI
+    private var geminiCLIBookmark: Data? {
+        get { defaults.data(forKey: "geminiCLIBookmark") }
+        set { defaults.set(newValue, forKey: "geminiCLIBookmark") }
+    }
     
     // MARK: - General Settings
     @Published var showDockIcon: Bool = true { didSet { save("showDockIcon", showDockIcon); updateAppVisibility() } }
@@ -411,6 +417,61 @@ class SettingsViewModel: ObservableObject {
                     self.mistralStatus = APIStatus(isSuccess: false, message: "✗ Connection Failed")
                 }
             }
+        }
+    }
+
+    // MARK: - Gemini CLI Security-Scoped Bookmark
+
+    /// Save security-scoped bookmark for Gemini CLI executable
+    func saveGeminiCLIBookmark(for url: URL) throws {
+        // Request security-scoped access
+        guard url.startAccessingSecurityScopedResource() else {
+            throw NSError(domain: "SettingsViewModel", code: -1, userInfo: [
+                NSLocalizedDescriptionKey: "Failed to access security-scoped resource"
+            ])
+        }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        // Create bookmark data
+        let bookmarkData = try url.bookmarkData(
+            options: .withSecurityScope,
+            includingResourceValuesForKeys: nil,
+            relativeTo: nil
+        )
+
+        // Save bookmark
+        geminiCLIBookmark = bookmarkData
+        geminiCLIPath = url.path
+
+        print("[SettingsViewModel] Saved security-scoped bookmark for Gemini CLI: \(url.path)")
+    }
+
+    /// Get URL from security-scoped bookmark
+    func getGeminiCLIURL() -> URL? {
+        guard let bookmarkData = geminiCLIBookmark else {
+            print("[SettingsViewModel] No bookmark data found for Gemini CLI")
+            return nil
+        }
+
+        do {
+            var isStale = false
+            let url = try URL(
+                resolvingBookmarkData: bookmarkData,
+                options: .withSecurityScope,
+                relativeTo: nil,
+                bookmarkDataIsStale: &isStale
+            )
+
+            if isStale {
+                print("[SettingsViewModel] Bookmark is stale, user needs to reselect the file")
+                return nil
+            }
+
+            print("[SettingsViewModel] Resolved bookmark to: \(url.path)")
+            return url
+        } catch {
+            print("[SettingsViewModel] Failed to resolve bookmark: \(error.localizedDescription)")
+            return nil
         }
     }
 }

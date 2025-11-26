@@ -16,7 +16,15 @@ class MainViewModel: ObservableObject {
             // Auto-reprocess current image when engine changes
             if let image = currentImage {
                 Task {
-                    await processImage(image, source: pdfDocument != nil ? "file" : "capture")
+                    let source: String
+                    if pdfDocument != nil {
+                        source = "pdf"
+                    } else if currentOriginalFilePath != nil {
+                        source = "image"
+                    } else {
+                        source = "capture"
+                    }
+                    await processImage(image, source: source)
                 }
             }
         }
